@@ -30,3 +30,27 @@ search for  recipe
  save accumulated data to disk
  load accumulated data from disk
 */
+//functions prototype
+RECIPE CreateRecipe(char* name, char* ingredient, char* instructions);
+
+void DisplayRecipe(RECIPE r);
+
+bool AddRecipe(RECIPE r, char* name);
+
+bool RemoveRecipe(RECIPE r, char* name);
+
+bool SaveRecipe(RECIPE r, char* filename);
+
+bool LoadRecipe(RECIPE* r, char* filename);
+
+int Count(RECIPE* r);
+
+void DisplayAllRecipes(RECIPE* r);
+
+void DisplayRangeRecipes(RECIPE* r);
+
+bool CompareRecipe(RECIPE lhs, RECIPE rhs);
+
+void UpdateRecipe(RECIPE* r, const char* name, const char* ingredients, const char* instructions);
+
+RECIPE* SearchRecipe(RECIPE* r, char* name);

@@ -11,7 +11,7 @@
 #define MAXNAME 50
 
 typedef struct person {
-
+    //
     char name[MAXNAME];
    
 } PERSON;

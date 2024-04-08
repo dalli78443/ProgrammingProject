@@ -76,7 +76,7 @@ bool updateCalender(char* description, char* newDescription, PERSON newPerson) {
     return updated;
 }
 
-void saveCalenderToDisk(CALENDER c, char* filename) {
+void saveCalenderToDisk( char* filename) {
     FILE* fp = fopen(filename, "w");
     if (fp != NULL) {
         for (int i = 0; i < numCalenderItems; i++) {
@@ -90,7 +90,7 @@ void saveCalenderToDisk(CALENDER c, char* filename) {
     }
 }
 
-bool loadCalenderFromDisk(CALENDER c, char* filename) {
+bool loadCalenderFromDisk(char* filename) {
     FILE* fp = fopen(filename, "r");
     if (fp != NULL) {
         while (!feof(fp) && numCalenderItems < MAX_CALENDAR_ITEMS) {
@@ -101,7 +101,7 @@ bool loadCalenderFromDisk(CALENDER c, char* filename) {
             fscanf(fp, "%d\n", &type);
             char description[MAXDESCRIPTION];
             fgets(description, MAXDESCRIPTION, fp);
-            removeNewline(description);
+            
 
             CALENDER c = CreateCalender(type, description, date, person);
             addCalender(c);
@@ -115,14 +115,14 @@ bool loadCalenderFromDisk(CALENDER c, char* filename) {
 void displayRangeOfCalender(TYPE type) {
     for (int i = 0; i < numCalenderItems; i++) {
         if (calender[i].type == type) {
-            displayCalendar(calender[i]);
+            displayCalender(calender[i]);
         }
     }
 }
 
 void displayAllCalender(CALENDER c) {
     for (int i = 0; i < numCalenderItems; i++) {
-        displayCalendar(calender[i]);
+        displayCalender(calender[i]);
     }
 }
 
@@ -133,4 +133,34 @@ PERSON* searchPersonInCalender(CALENDER c, PERSON p) {
         }
     }
     return NULL; // Person not found in calendar
+}
+
+CALENDER createCalenderEventFromInput() {
+    int type;
+    printf("Enter event type (0 for Appointment, 1 for Birthday, 2 for Deadline, 3 for Other): ");
+    scanf("%d", &type);
+    char description[MAXDESCRIPTION];
+    printf("Enter description: ");
+    scanf(" %s\n", description);
+    DATE date = createDateFromInput();
+    PERSON person = createPersonFromInput();
+    return CreateCalender((TYPE)type, description, date, person);
+}
+
+DATE createDateFromInput() {
+    DATE date;
+    printf("Enter day: ");
+    scanf("%d", &date.day);
+    printf("Enter month: ");
+    scanf("%d", &date.month);
+    printf("Enter year: ");
+    scanf("%d", &date.year);
+    return date;
+}
+
+PERSON createPersonFromInput() {
+    char name[MAXNAME];
+    printf("Enter person's name: ");
+    scanf(" %s\n", name);
+    return CreatePerson(name);
 }

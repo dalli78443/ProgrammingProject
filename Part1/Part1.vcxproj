@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="calender.c" />
+    <ClCompile Include="main.c" />
     <ClCompile Include="menu.c" />
     <ClCompile Include="person.c" />
   </ItemGroup>

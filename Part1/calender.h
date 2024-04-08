@@ -1,11 +1,16 @@
 #pragma once
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include "person.h" // Include the person file
 
-/*Your program must have the following mandatory features :
+/*prog71985-winter24-project-number1
+alli demilade, ansh dhunna, abhimanyu rajeevan
+calender  program
+
+Your program must have the following mandatory features :
 1. add a new appt / task / recipe / other
 2. delete an existing appt / task / recipe / other
 3. update an existing appt / task / recipe / other
@@ -53,10 +58,9 @@ bool deleteCalender(CALENDER c);
 
 bool updateCalender( char* description,  char* newDescription, PERSON newPerson);
 
-void saveCalenderToDisk(CALENDER c, char* filename);
+void saveCalenderToDisk( char* filename);
 
-bool loadCalenderFromDisk(CALENDER c, char* filename);
-
+bool loadCalenderFromDisk( char* filename);
 
 void displayRangeOfCalender( TYPE type);
 
@@ -64,3 +68,8 @@ void displayAllCalender(CALENDER c);
 
 PERSON* searchPersonInCalender(CALENDER c, PERSON p);
 
+CALENDER createCalenderEventFromInput();
+
+DATE createDateFromInput();
+
+PERSON createPersonFromInput();

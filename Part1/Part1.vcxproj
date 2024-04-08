@@ -127,9 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="calender.h" />
+    <ClInclude Include="menu.h" />
     <ClInclude Include="person.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="calender.c" />
+    <ClCompile Include="menu.c" />
     <ClCompile Include="person.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -18,9 +18,21 @@
     <ClInclude Include="person.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="calender.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="person.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="calender.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
